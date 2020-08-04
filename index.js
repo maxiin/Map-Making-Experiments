@@ -41,6 +41,7 @@ const right = ({x, y}) => ({x, y: y+1});
 const left = ({x, y}) => ({x, y: y-1});
 const bottom = ({x, y}) => ({x: x+1, y});
 
+// TODO simple testind for un-odd boards (it's 2 am and i need to sleep)
 const center = () => ({x: maxIndex/2, y: maxIndex/2});
 
 const rand = () => Boolean(Math.round(Math.random() * 2));
@@ -55,7 +56,10 @@ function valid({x, y}) {
     return true;
 }
 
+// random the array to get random initial nodes (it can start in any direction)
 function shuffleArray(array) {
+    // Durstenfeld shuffle
+    // https://en.wikipedia.org/wiki/Fisher–Yates_shuffle#The_modern_algorithm
     for (var i = array.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
         var temp = array[i];
