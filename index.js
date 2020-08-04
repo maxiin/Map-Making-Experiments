@@ -102,7 +102,7 @@ function fill({x, y}, from, index = 0) {
     if(valid({x,y}) && movesLeft && index < movesLeft/2){
         //board[x][y] = {TOP: '^', RIGHT: '>', LEFT: '<', BOTTOM: '_', CENTER: 'X'}[from]; // print last move in cell
         //board[x][y] = '_'; // print a simple _
-        board[x][y] = from === 'CENTER' ? 'X' : '_'; // print a simple _
+        board[x][y] = from === 'CENTER' ? 'X' : '_'; // print a simple _ except when its the center where it will print a X
         //board[x][y] = index; // print index of the line
         movesLeft--; // remove one from the global max moves
         move = getMoves(from, from === 'CENTER' ? 4 : 1); // all nodes can move one except the center that can create the 4 initial nodes
