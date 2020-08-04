@@ -91,6 +91,7 @@ function getMoves(from, moves) {
     for(let i = 0; i < moves; i++) {
         const randd = Math.floor(Math.random() * available.length);
         move.push(available[randd]);
+        // remove selected move so it doesn't repeat and i get more corridors 
         available.splice(randd, 1);
     }
     return shuffleArray(move);
