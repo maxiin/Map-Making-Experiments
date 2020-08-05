@@ -14,3 +14,11 @@ The times are about the same 500-600ms per 41x41 20 nodes map, and about 600-700
 ~~Still need to figure out how to make a "minimum" for the first sistem, i liked it more, but sometimes it can have less than 20/40 nodes;~~ Did a "minimum" for map1, changed so much i decided to make a new file (map3).
 
 Not for using somewhere for real, this is just 4 fun :p
+
+## TODO
+
+Probably will only work on map 3 onwards
+
+simplify everything to only use that doWhile (L170) 
+
+remove as many duplicate code as possible
