@@ -131,7 +131,10 @@ function fill({x, y}, from, index = 0) {
 }
 
 // test one
+runTime
+console.time("runTime");
 fill(center(), 'CENTER');
+console.timeEnd("runTime");
 console.log(board.map((l) => l.join('|')))
 
 // test multiple
