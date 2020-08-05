@@ -107,7 +107,7 @@ function fill({x, y}, from, index = 0) {
         board[x][y] = '_'; // print a simple _
         //board[x][y] = from === 'CENTER' ? 'X' : '_'; // print a simple _ except when its the center where it will print a X
         //board[x][y] = index; // print index of the line
-        lastFilled.push({x,y});
+        lastFilled.push({x,y, i: index});
         movesLeft--; // remove one from the global max moves
         move = getMoves(from, from === 'CENTER' ? 4 : 1); // all nodes can move one except the center that can create the 4 initial nodes
         move.forEach((m) => {
