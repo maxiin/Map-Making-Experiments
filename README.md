@@ -15,7 +15,7 @@ The times are about the same 500-600ms per 21x21 20ish nodes map, and about 600-
 
 Not for using somewhere for real, this is just 4 fun :p
 
-map5 is a js implementation of [Six Dot's](https://www.youtube.com/watch?v=nADIYwgKHv4) map generation (originally c#/unity) but it's kinda slower (15.000-20.000ms) gonna see how i cant improve it.
+map5 is a js implementation of [Six Dot's](https://www.youtube.com/watch?v=nADIYwgKHv4) map generation (originally c#/unity)
 
 ## TODO
 
