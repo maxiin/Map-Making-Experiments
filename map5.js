@@ -19,7 +19,7 @@ function init() {
 function createMap() {
     rooms = new Array(half * 2).fill(0).map(() => new Array(half * 2).fill(0));
     
-    rooms[half][half] = 1;
+    rooms[half][half] = 'X';
     taken.push({x: half, y: half});
     createRooms();
 }
@@ -38,7 +38,7 @@ function createRooms() {
                 iterations++;
             } while (neighborNumber(pos) > 1 && iterations < roomCount);
         }
-        rooms[pos.x][pos.y] = 2;
+        rooms[pos.x][pos.y] = '_';
         taken.push(pos);
     }
 }
@@ -74,7 +74,6 @@ function newPosition(selective) {
             }
         }
         pos = {x,y}
-        console.error(pos, alreadyTaken(pos));
     } while (alreadyTaken(pos) || x >= half * 2 || x < 0 || y >= half * 2 || y < 0);
     return pos;
 }
@@ -104,4 +103,5 @@ console.time('third')
 init();
 console.timeEnd('third')
 console.log(`taken: ${JSON.stringify(taken)}`)
+console.log(rooms.reduce((ac, val) => ac + val.reduce((ac, val) => ac + val == 0 ? 0 : 1, 0), 0));
 console.log(rooms.map((l) => l.join('|')));
