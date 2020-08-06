@@ -103,5 +103,5 @@ console.time('third')
 init();
 console.timeEnd('third')
 console.log(`taken: ${JSON.stringify(taken)}`)
-console.log(rooms.reduce((ac, val) => ac + val.reduce((ac, val) => ac + val == 0 ? 0 : 1, 0), 0));
+console.log(`Rooms created: ${rooms.reduce((ac, val) => ac + val.reduce((ac, val) => ac + val == 0 ? 0 : 1, 0), 0)}`);
 console.log(rooms.map((l) => l.join('|')));
