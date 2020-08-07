@@ -1,4 +1,4 @@
-const half = 10;
+const middle = 10;
 const roomCount = 10;
 
 let rooms;
@@ -9,18 +9,17 @@ const right = ({x, y}) => ({x, y: y+1});
 const left = ({x, y}) => ({x, y: y-1});
 const bottom = ({x, y}) => ({x: x+1, y});
 
-function init() {
-    if (roomCount > Math.pow(half * 2)) {
-        roomCount = Math.pow(half * 2);
+function initBoard() {
+    if (roomCount > Math.pow(middle * 2)) {
+        roomCount = Math.pow(middle * 2);
     }
-    createMap();
+    rooms = new Array(middle * 2).fill(0).map(() => new Array(middle * 2).fill(0));
+    initMap();
 }
 
-function createMap() {
-    rooms = new Array(half * 2).fill(0).map(() => new Array(half * 2).fill(0));
-    
-    rooms[half][half] = 'X';
-    taken.push({x: half, y: half});
+function initMap() {
+    rooms[middle][middle] = 'X';
+    taken.push({x: middle, y: middle});
     createRooms();
 }
 
@@ -45,7 +44,7 @@ function createRooms() {
 
 function newPosition(selective) {
     let x = 0, y = 0;
-    let pos = {x: half, y: half};
+    let pos = {x: middle, y: middle};
     do {
         let index = Math.floor(Math.random() * taken.length);
         if(selective){
@@ -74,7 +73,7 @@ function newPosition(selective) {
             }
         }
         pos = {x,y}
-    } while (alreadyTaken(pos) || x >= half * 2 || x < 0 || y >= half * 2 || y < 0);
+    } while (alreadyTaken(pos) || x >= middle * 2 || x < 0 || y >= middle * 2 || y < 0);
     return pos;
 }
 
@@ -100,8 +99,8 @@ function alreadyTaken({x,y}) {
 }
 
 console.time('third')
-init();
+initBoard();
 console.timeEnd('third')
 console.log(`taken: ${JSON.stringify(taken)}`)
-console.log(`Rooms created: ${rooms.reduce((ac, val) => ac + val.reduce((ac, val) => ac + val == 0 ? 0 : 1, 0), 0)}`);
+console.log(rooms.reduce((ac, val) => ac + val.reduce((ac, val) => ac + val == 0 ? 0 : 1, 0), 0));
 console.log(rooms.map((l) => l.join('|')));
